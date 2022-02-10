@@ -11,6 +11,7 @@ export function links() {
 type LoaderData = User[];
 
 export const loader: LoaderFunction = async () => {
+  console.log(process.env.DATABASE_URL);
   const users: LoaderData = await db.user.findMany();
   return users;
 };
