@@ -54,17 +54,17 @@ function Game() {
   return (
     <>
       {error ? <p className="message-section">{error}</p> : null}
+      {gameIsOver ? (
+        <p className="message-section">
+          It took you {nrOfCardsTurned} moves to finish the game
+        </p>
+      ) : null}
       {showConfetti > 0 ? (
         <Confetti
           // if a confetti starts while there's still confetti falling
           // shouldRecycle gets set to true so that confetti continues
           shouldRecycle={showConfetti > 1}
         />
-      ) : null}
-      {gameIsOver ? (
-        <p className="message-section">
-          It took you {nrOfCardsTurned} moves to finish the game
-        </p>
       ) : null}
       <Board
         cards={cards}
