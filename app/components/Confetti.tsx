@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactConfetti from 'react-confetti';
 
 type ConfettiProps = {

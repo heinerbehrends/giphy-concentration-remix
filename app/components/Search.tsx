@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FormEventHandler } from 'react';
+import { ChangeEventHandler, FormEventHandler } from 'react';
 import { Form } from 'remix';
 
 type SearchProps = {
