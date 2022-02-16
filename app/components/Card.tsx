@@ -9,17 +9,16 @@ type additionalCardProps = {
 };
 export type CardProps = CardT & additionalCardProps;
 
-function Card(props: CardProps) {
-  const {
-    url,
-    isFlipped,
-    isVisible,
-    key,
-    handleCardClick,
-    flipCount,
-    progress,
-    setProgress,
-  } = props;
+function Card({
+  url,
+  isFlipped,
+  isVisible,
+  key,
+  handleCardClick,
+  flipCount,
+  progress,
+  setProgress,
+}: CardProps) {
   return (
     <div
       className="scene"
@@ -34,9 +33,9 @@ function Card(props: CardProps) {
           cursor: progress === 24 ? 'pointer' : 'default',
         }}
       >
-        <div className="card__face card__face--front">
+        <div className="card-face card-face-front">
           <img
-            className="card__image"
+            className="card-image"
             src="backside.gif"
             alt="backside"
             style={{
@@ -46,15 +45,16 @@ function Card(props: CardProps) {
             }}
           />
         </div>
-        <div className="card__face card__face--back">
+        <div className="card-face card-face-back">
           <img
-            className="card__image"
+            onLoad={() => {
+              if (progress === 24) return;
+              setProgress(progress + 1);
+            }}
+            className="card-image"
             data-name="card-image"
             src={url}
             alt="frontside"
-            onLoad={() => {
-              setProgress(progress + 1);
-            }}
           />
         </div>
       </div>
