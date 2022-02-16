@@ -38,9 +38,9 @@ function Game() {
   );
   const { showConfetti } = useShowConfetti(flipCount, cards!);
   const gameIsOver = isGameOver(cards!);
-  // if (gameIsOver) {
-  //   setTimeout(() => navigate('/'), 4000);
-  // }
+  if (gameIsOver) {
+    setTimeout(() => navigate('/'), 4000);
+  }
   if (error) {
     setTimeout(() => navigate('/'), 3000);
   }
