@@ -2,10 +2,9 @@ import { GiphyFetch, SearchOptions } from '@giphy/js-fetch-api';
 import { IGif } from '@giphy/js-types';
 import { makeCards } from '../logic/logic';
 const API_KEY = process.env.API_KEY;
-console.log(API_KEY);
 const gf = new GiphyFetch(API_KEY!);
 
-function getURL(giphObj: IGif) {
+export function getURL(giphObj: IGif) {
   return giphObj.images.fixed_height.url;
 }
 
