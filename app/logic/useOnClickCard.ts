@@ -1,16 +1,15 @@
 import {
   Cards,
-  CardT,
   shouldFlip,
   flipCard,
   shouldTriggerFlipBack,
   flipOrRemove,
   isPair,
-} from './logic';
+} from './gameLogic';
 
 export function useOnClickCard(
   cards: Cards,
-  setCards: React.Dispatch<React.SetStateAction<CardT[] | null>>,
+  setCards: React.Dispatch<React.SetStateAction<Cards>>,
   setFlipCount: React.Dispatch<React.SetStateAction<number>>,
   timeoutObj: NodeJS.Timeout,
   nrOfCardsTurned: number,

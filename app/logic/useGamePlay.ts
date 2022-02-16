@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Cards, CardT, flipOrRemove, isPair } from './logic';
+import { Cards, flipOrRemove, isPair } from './gameLogic';
 
 export function useGamePlay(
   cards: Cards,
-  setCards: React.Dispatch<React.SetStateAction<CardT[] | null>>
+  setCards: React.Dispatch<React.SetStateAction<Cards>>
 ) {
   const [flipCount, setFlipCount] = useState(0);
   const [timeoutObj, setTimeoutObj] = useState<NodeJS.Timeout | null>(null);

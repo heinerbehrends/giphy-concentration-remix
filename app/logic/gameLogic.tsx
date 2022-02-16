@@ -1,3 +1,5 @@
+import React, { useEffect } from 'react';
+
 export type CardT = {
   key: number;
   url: string;
@@ -7,7 +9,7 @@ export type CardT = {
 
 export type Cards = readonly CardT[];
 
-function shuffleArray<Type>(array: Type[]): Type[] {
+export function shuffleArray<Type>(array: Type[]): Type[] {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]]; // eslint-disable-line no-param-reassign
@@ -15,12 +17,12 @@ function shuffleArray<Type>(array: Type[]): Type[] {
   return array;
 }
 
-function duplicateElements<Type>(array: Type[]) {
+export function duplicateElements<Type>(array: Type[]) {
   return array.map((element) => [element, element]).flat();
 }
 
 export function makeCards(linkArray: string[]): Cards {
-  return shuffleArray(duplicateElements(linkArray)).map((link, i) => ({
+  return linkArray.map((link, i) => ({
     key: i,
     url: link,
     isFlipped: false,
@@ -68,4 +70,27 @@ export function flipOrRemove(cards: Cards, isPair: boolean) {
     }
     return card;
   });
+}
+
+export function isGameOver(cards: Cards) {
+  if (cards) {
+    return cards.length && !countCards(cards);
+  }
+  return false;
+}
+
+export function useCheckLoadedImages(
+  progress: number,
+  setProgress: React.Dispatch<React.SetStateAction<number>>
+) {
+  useEffect(() => {
+    const images = document.querySelectorAll('[data-name]');
+    Array.from(images).forEach((image) => {
+      if (image instanceof HTMLImageElement) {
+        if (image.complete) {
+          setProgress((progress) => progress + 1);
+        }
+      }
+    });
+  }, []);
 }

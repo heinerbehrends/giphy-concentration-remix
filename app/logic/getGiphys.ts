@@ -1,6 +1,7 @@
 import { GiphyFetch, SearchOptions } from '@giphy/js-fetch-api';
 import { IGif } from '@giphy/js-types';
-import { makeCards } from '../logic/logic';
+import { duplicateElements, shuffleArray } from './gameLogic';
+
 const API_KEY = process.env.API_KEY;
 const gf = new GiphyFetch(API_KEY!);
 
@@ -22,7 +23,7 @@ export async function getCards(searchTerm: string) {
       throw new Error('There are not enough results for the search term.');
     }
     const URLs = result.data.map(getURL);
-    const cards = makeCards(URLs);
+    const cards = shuffleArray(duplicateElements(URLs));
 
     return { cards, error: null };
   } catch (error) {

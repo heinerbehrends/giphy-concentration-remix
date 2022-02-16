@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardT } from '../logic/logic';
+import { CardT } from '../logic/gameLogic';
 
 type additionalCardProps = {
   handleCardClick: (key: number, flipCount: number, progress: number) => void;

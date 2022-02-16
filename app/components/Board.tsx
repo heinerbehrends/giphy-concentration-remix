@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Card from './Card';
-import { Cards } from '../logic/logic';
+import { Cards } from '../logic/gameLogic';
 import * as ProgressPrimitive from '@radix-ui/react-progress';
 import { useCheckLoadedImages } from '~/logic/gameLogic';
 

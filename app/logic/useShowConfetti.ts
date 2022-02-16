@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Cards, isPair, CardT } from './logic';
+import { Cards, isPair, CardT } from './gameLogic';
 
 export function useShowConfetti(flipCount: number, cards: Cards) {
   const [showConfetti, setShowConfetti] = useState(0);
