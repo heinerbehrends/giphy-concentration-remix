@@ -1,12 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'remix';
+import React, { useEffect } from 'react';
 import { Cards, countCards } from './logic';
-
-export function useParseSearchTerm() {
-  let [searchParams] = useSearchParams();
-  console.log(searchParams);
-  const [searchTerm, setSearchTerm] = useState('');
-}
 
 export function useCheckLoadedImages(
   progress: number,
