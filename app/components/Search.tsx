@@ -5,7 +5,6 @@ type SearchProps = {
   handleChange: ChangeEventHandler<HTMLInputElement>;
   handleSubmit: FormEventHandler<HTMLFormElement>;
   value: string;
-  nrOfCardsTurned: number;
 };
 
 export default function Search({
@@ -25,9 +24,7 @@ export default function Search({
           value={value}
           onChange={handleChange}
         />
-        <button className="input button" type="submit">
-          Go!
-        </button>
+        <button type="submit">Go!</button>
       </Form>
     </section>
   );
