@@ -1,4 +1,13 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 .container {
+  transform: translateY(-7vh);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,9 +31,22 @@ fieldset > :not(:last-child) {
 }
 
 [type='submit'] {
-  width: 100%;
   margin-left: 0;
   margin-top: 1.1rem;
   display: table-cell;
   vertical-align: middle;
+}
+
+.form-validation-error {
+  font-size: 16px;
+  line-height: 0;
+}
+
+.validation-stand-in {
+  height: 18px;
+  color: red;
+}
+
+.fieldset {
+  align-self: center;
 }

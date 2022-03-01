@@ -3,27 +3,5 @@
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-}
-
-.search-section input {
-  width: fit-content;
-}
-
-.replay-button {
-  display: block;
-  width: fit-content;
-  color: white;
-  font-weight: 600;
-  /* margin: 0 auto; */
-  background-color: rgb(219, 144, 5);
-  margin-top: 2rem;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
+  transform: translateY(-7vh);
 }
