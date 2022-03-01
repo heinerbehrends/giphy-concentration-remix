@@ -9,26 +9,27 @@ export function getURL(giphObj: IGif) {
   return giphObj.images.fixed_height.url;
 }
 
-// type guard function to check if error object has message property
-function isError(something: any): something is NodeJS.ErrnoException {
+// type guard function for NodeJS Errors
+function isError(something: any): something is Error {
   return something instanceof Error;
 }
 
-export async function getCards(searchTerm: string) {
+export async function getUrls(searchTerm: string) {
   try {
     const options: SearchOptions = { sort: 'recent', limit: 12, rating: 'g' };
 
     const result = await gf.search(searchTerm, options);
+    console.log(result.data[0].images);
     if (result.data.length < 12) {
       throw new Error('There are not enough results for the search term.');
     }
     const URLs = result.data.map(getURL);
-    const cards = shuffleArray(duplicateElements(URLs));
+    const preparedUrls = shuffleArray(duplicateElements(URLs));
 
-    return { cards, error: null };
+    return { preparedUrls, error: null };
   } catch (error) {
     if (isError(error)) {
-      return { error: error.message, cards: null };
+      return { error: error.message, preparedUrls: null };
     }
   }
 }
