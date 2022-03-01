@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Links,
   LiveReload,
@@ -16,7 +15,7 @@ export const meta: MetaFunction = () => {
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: styles },
-  { rel: 'preconnect', href: 'https://media.giphy.com' },
+  { rel: 'preconnect', href: 'https://media0.giphy.com' },
   { rel: 'preconnect', href: 'https://api.giphy.com' },
   { rel: 'preconnect', href: 'https://fonts.googleapsis.com' },
   { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
